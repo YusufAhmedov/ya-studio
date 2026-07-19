@@ -30,9 +30,16 @@ examples/                         ← заполненный пример арт
 
 ## Новый проект
 
-1. Скопируй `project-template/` под новую задачу.
+1. Скопируй `project-template/` под новую задачу (только шаблон, не плагин).
 2. Положи идею/ТЗ в `inputs/`.
 3. Открой папку в Claude Code → `/start`.
+
+⚠️ **Важно:** Не копируй папку `plugin/` себе — устанавливай плагин через маркетплейс:
+```bash
+claude plugin marketplace add YusufAhmedov/ya-studio  # или просто /plugin install ya-design
+claude plugin install ya-design@ya-studio
+```
+Обновления будут автоматически.
 
 ## Как устроено обучение среды
 
