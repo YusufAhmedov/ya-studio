@@ -1,0 +1,18 @@
+{
+  "name": "ya-studio",
+  "owner": {
+    "name": "Yusuf Akhmedov",
+    "email": "yusufjon.ahmedov@alif.tj"
+  },
+  "metadata": {
+    "description": "YA Studio — среда дизайн-команды для Claude Code: один дизайнер работает как целая студия",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "ya-design",
+      "source": "./plugin",
+      "description": "Дизайн-пайплайн: ТЗ → wireframe → Hi-Fi (Figma DS) → review → код (alif-ui)"
+    }
+  ]
+}
