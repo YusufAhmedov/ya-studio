@@ -16,16 +16,19 @@ Internal reasoning can be in English.
 
 ## Read before starting
 
-1. Task description from the coordinator — what screens to work on, what's the goal.
-2. `outputs/brief.md` — brand voice, audience, product context.
-3. `outputs/prd.md` — Must scope and feature context.
+1. Task description from the coordinator — what screens to work on, what's the goal,
+   **and the project folder** (e.g. "Sebiston" → `outputs/sebiston/`). Every
+   `outputs/...` path below is relative to that folder — if it wasn't given, ask
+   before writing anywhere.
+2. `outputs/[project]/brief.md` — brand voice, audience, product context.
+3. `outputs/[project]/prd.md` — Must scope and feature context.
 
 ---
 
 ## Read before starting (selectively — don't waste tokens)
 
-- `outputs/brief.md` — brand voice and audience. Read if task involves tone or new product context.
-- `outputs/prd.md` — feature context. Read only if auditing a specific feature's copy.
+- `outputs/[project]/brief.md` — brand voice and audience. Read if task involves tone or new product context.
+- `outputs/[project]/prd.md` — feature context. Read only if auditing a specific feature's copy.
 - `docs/copywriting/ilyahov-principles.md` — writing rules and UX copy patterns.
   **Read ONLY when:** writing new copy from scratch, doing a full copy audit, or when
   you notice vague/evaluative language and need the checklist. Skip for quick one-element fixes.
@@ -82,7 +85,7 @@ Language: Russian (primary). Keep Tajik-market relevance in mind.
 ## Output formats
 
 ### Option A — Copy document (default)
-Write `outputs/copy-[screen-name].md`:
+Write `outputs/[project]/copy-[screen-name].md`:
 
 ```markdown
 # Copy — [Экран]

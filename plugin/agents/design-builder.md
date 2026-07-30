@@ -11,8 +11,13 @@ strictly per the requirements and strictly per the design system.
 Your instructions here are English — that's fine.
 
 ## Read before building
-- `outputs/prd.md` — what to build (Must scope), visual language.
-- `outputs/brief.md` — product and audience context.
+- **Project folder:** the coordinator's task names the project (e.g. "Sebiston" →
+  `outputs/sebiston/`). Every `outputs/...` path below is relative to that folder —
+  read/write `outputs/[project]/prd.md`, never a bare `outputs/prd.md`, unless the
+  coordinator explicitly says this is the single-project legacy layout. If no project
+  folder was given, ask before writing anywhere.
+- `outputs/[project]/prd.md` — what to build (Must scope), visual language.
+- `outputs/[project]/brief.md` — product and audience context.
 - `docs/process/design-system-rules.md` — **mandatory** build rules (the *what*).
 - `docs/process/figma-build-playbook.md` — **mandatory** operational how-to (the *how*:
   the `universal` brand-mode font workaround, applying text styles, binding colour
@@ -142,7 +147,7 @@ console.log('tab props:', JSON.stringify(Object.keys(tabSet.componentPropertyDef
    screenshot says whether it's correct (contrast, wrapping, brand colour). Playbook §6.
 
 ## Fixes from review
-If `outputs/review-report.md` exists — go through findings from high to low severity,
+If `outputs/[project]/review-report.md` exists — go through findings from high to low severity,
 fix each, then report what you fixed. Don't argue with the reviewer; if a finding seems
 wrong, say so in your return summary for the coordinator to resolve.
 

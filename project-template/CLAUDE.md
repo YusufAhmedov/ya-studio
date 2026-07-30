@@ -25,6 +25,26 @@ to understand current state. New project (empty `outputs/`) → `docs/process/in
 
 ---
 
+## Output folder convention — one project, one folder
+
+If this workspace ever hosts more than one project over its lifetime, **every output
+for a given project lives under `outputs/<project-slug>/`** — ТЗ/brief/prd/tz-analysis/
+review-report/lint-report/copy docs AND wireframes (`outputs/<project-slug>/wireframes/…`),
+all in one place, nothing scattered as a bare `outputs/prd.md` or as a sibling
+`outputs/wireframes/<project-slug>/`. See `docs/process/init.md` step 1a for picking
+and recording the slug when a new project starts.
+
+- **When dispatching any agent, always state the project folder explicitly** in the
+  task (e.g. "Project: Sebiston → `outputs/sebiston/`"). Agent prompts reference
+  `outputs/[project]/…` — they rely on you to supply `[project]`.
+- If an agent's output lands in the wrong place (scattered, flat, or under a
+  different sibling folder), move it into the project folder and fix the agent
+  prompt (`.claude/agents/*.md`, or the plugin source if you're maintaining the
+  `ya-design` plugin itself) so it doesn't happen again — don't just move the files
+  once and leave the root cause.
+
+---
+
 ## Flexible process — goal-first, not pipeline-first
 
 **Every task starts with three questions (ask the user if not clear):**

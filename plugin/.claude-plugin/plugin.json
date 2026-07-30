@@ -1,6 +1,6 @@
 {
   "name": "ya-design",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "YA Studio — команда дизайн-агентов: анализ ТЗ, вайрфреймы, Hi-Fi сборка в Figma из DS, ревью, UX-тексты, реализация в React на alif-ui",
   "author": {
     "name": "Yusuf Akhmedov",

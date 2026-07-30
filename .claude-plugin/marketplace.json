@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "YA Studio — среда дизайн-команды для Claude Code: один дизайнер работает как целая студия",
-    "version": "0.1.0"
+    "version": "0.1.1"
   },
   "plugins": [
     {

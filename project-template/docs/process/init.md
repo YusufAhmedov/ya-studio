@@ -15,6 +15,19 @@ new project, adapt the docs, and hand control to the working loop.
 - If `outputs/` still holds someone else's example or a previous project — suggest the
   human clear `outputs/` and `inputs/idea.md` before starting (but don't delete `examples/`).
 
+### 1a. Pick and record the output-folder slug (every new project, no exceptions)
+This workspace may host more than one project over its lifetime — every one of them
+gets its own `outputs/<slug>/` (see "Output folder convention" in `CLAUDE.md`). This
+applies **regardless of entry point** — whether the project starts from `inputs/idea.md`
+via this protocol, or skips straight to `/tz` on an external ТЗ, or anything else.
+1. Derive `<slug>` from the working product name (kebab-case, e.g. "Sebiston" → `sebiston`).
+2. **Record it immediately** as the first line of a new `docs/project/decision-log.md`
+   entry for this project (e.g. "Проект: Sebiston, папка outputs/sebiston/") — don't
+   rely on holding it in conversation memory only; a future session (or this one after
+   context compaction) must be able to read it back instead of re-guessing.
+3. From this point on, every task you hand to an agent must name this folder explicitly
+   (agent prompts expect `outputs/[project]/...` and will ask if you don't say).
+
 ### 2. Read the idea
 Read `inputs/idea.md`. If it's empty or a placeholder — ask the human to add an idea
 (or pick one from `ideas.md`).
@@ -44,7 +57,7 @@ If the human doesn't know an answer — propose a conservative default and mark 
 ### 5. Hand off to the loop
 Report briefly to the human (in Russian):
 ```
-Проект: [name]
+Проект: [name] (outputs/[slug]/)
 Идея понята: yes/no
 Roadmap: drafted (stages and first screens)
 Допущения: [list]

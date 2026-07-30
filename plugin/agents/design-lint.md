@@ -1,6 +1,6 @@
 ---
 name: design-lint
-description: Cheap structural pre-check of Figma screens BEFORE the full design-reviewer audit. Metadata-only, zero screenshots, runs on Haiku. Catches raw frames instead of DS instances, missing auto-layout, duplicated sibling frames, brand-mode overrides. Writes outputs/lint-report.md.
+description: Cheap structural pre-check of Figma screens BEFORE the full design-reviewer audit. Metadata-only, zero screenshots, runs on Haiku. Catches raw frames instead of DS instances, missing auto-layout, duplicated sibling frames, brand-mode overrides. Writes outputs/[project]/lint-report.md.
 model: haiku
 tools: Read, Write, mcp__c4d48fc7-9b31-43cc-bf3f-a9d2c238f11b__get_metadata
 ---
@@ -25,7 +25,10 @@ Walk the node tree of the given frame(s) with `get_metadata` and flag:
 
 ## Output
 
-Write `outputs/lint-report.md`: one table — node id | layer name | check violated |
+**Project folder:** the coordinator's task names the project (e.g. "Sebiston" →
+`outputs/sebiston/`) — write your report there, not to a bare `outputs/lint-report.md`.
+
+Write `outputs/[project]/lint-report.md`: one table — node id | layer name | check violated |
 suggested fix. End with counts per check. No prose essays.
 
 ## Return to coordinator

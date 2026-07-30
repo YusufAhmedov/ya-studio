@@ -17,8 +17,9 @@ Code, identifiers, and commit messages — in English.
 ## Read before starting
 
 1. Task description from the coordinator — which screen(s), which Figma node IDs, target
-   project folder.
-2. `outputs/prd.md` (if exists) — requirements and Must scope.
+   project folder (e.g. "Sebiston" → `outputs/sebiston/` for docs; the target code repo
+   is a separate path the coordinator names, e.g. `chudo-tovar-app/`).
+2. `outputs/[project]/prd.md` (if exists) — requirements and Must scope.
 3. `docs/design-system/ds-index.md` Section 2 (tokens) — semantic color roles, to map
    design intent (not pixels) to code.
 4. `docs/project/decision-log.md` — accepted decisions.
@@ -43,6 +44,20 @@ Code, identifiers, and commit messages — in English.
   UnstyledButton.
 - **Before using a component, check its actual props** in the installed package:
   `node_modules/alif-ui/dist/components/<Name>/` (`.d.ts` files). Don't invent props.
+  This is the source of truth — more reliable than the Storybook site (ui.alif.tj is
+  a heavily client-rendered Storybook; plain HTTP fetch tools can't read it, and
+  clicking through ~90 components in a browser is too slow to be worth it. If
+  `node_modules/alif-ui` isn't installed yet in the target project, install it first
+  rather than guessing props from memory or from Storybook screenshots).
+- **Brand setup:** every app is wrapped once in `AlifProvider` (`brand` / `initialMode`
+  / `initialLocale` props). If the target project's brand is NOT `'universal'` (the
+  only brand with a complete built-in CSS block right now), follow
+  `docs/design-system/brand-tokens-css-architecture.md` §0 — in most cases (brand
+  color matches one of the 17 built-in hue ramps) it's a single small CSS file
+  copying the library's own `universal` block with ~8 lines swapped, no design-team
+  hand-off needed. Only fall back to `brand-setup-in-code.md` (ask design team for a
+  full base/mode/brand CSS package) when the color doesn't match a built-in hue.
+  Read the architecture doc before scaffolding a new project's brand.
 
 ### DS-first rule (hard stops)
 
@@ -71,9 +86,13 @@ the DS backlog → `docs/follow-ups/parking-lot.md`).
    don't re-request unless the design changed). `get_variable_defs` — only if token
    values are actually needed.
 3. **Figma→code map:** read `docs/design-system/figma-to-code-map.md` — it maps Figma
-   DS components (by name/key) to alif-ui components and props. Trust it over guessing.
-   (Code Connect is NOT available on our Figma plan — never call `get_code_connect_map`
-   or other Code Connect tools.)
+   DS components (by name/key) to alif-ui components and props. **Read §0 (Общие
+   паттерны) every time, even for a component you've built before** — it captures
+   the cross-cutting gotchas that cause most mistakes: compound-component sub-parts
+   (`X.Item`/`X.Header`/...), the `Tab` vs `Tabs` split, controlled-vs-uncontrolled
+   components, and Figma variant axes that don't exist in code. Trust this file over
+   guessing. (Code Connect is NOT available on our Figma plan — never call
+   `get_code_connect_map` or other Code Connect tools.)
 
 You NEVER write to Figma. `use_figma` and other mutation tools are off-limits.
 
