@@ -21,7 +21,7 @@ examples/                         ← заполненный пример арт
 ## Установка (каждый дизайнер, один раз)
 
 ```
-/plugin marketplace add <GITHUB_USER>/ya-studio
+/plugin marketplace add YusufAhmedov/ya-studio
 /plugin install ya-design@ya-studio
 ```
 
